@@ -1,3 +1,3 @@
 # NunettineProject
 
-*Created Nunetine Projrct
+*Created Nunettine Project
