@@ -1,4 +1,4 @@
 # NunettineProject
 
-* Created the Nunettine Project
-* Here is Nunettine's work place
+* Created the Nunettine's Project
+* Here is Nunettine's work space
