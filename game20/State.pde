@@ -2,9 +2,9 @@ PImage img;
 PImage image[] = new PImage[20];
 int index = 0;
 int wait = 1000;
-Button  btnVehicle,btnAnimal,btnColor,btnFood,btnNum,btnRandom,btnBack,btnRecord,btnGameStart,btnHome,btnMusic, btnEnd1, btnTomato, btnBear, btnWord, btnPig,btnEnd2;  
+Button  btnVehicle,btnAnimal,btnColor,btnFood,btnNum,btnRandom,btnBack,btnRecord,btnGameStart,btnHome,btnMusic, btnEnd1, btnTomato, btnBear, btnWord, btnPig,btnEnd2,btnCard,btnSafe,btnNote;  
 
-PImage  imgVehicle,imgAnimal,imgColor,imgFood,imgNum,imgRondom,imgBack,imgStart,imgTitle,imgWrite,imgHome,imgMusic,imgReady,bgd,random; 
+PImage  imgVehicle,imgAnimal,imgColor,imgFood,imgNum,imgRondom,imgBack,imgStart,imgTitle,imgWrite,imgHome,imgMusic,imgReady,bgd,random,imgBack2,imgCard,imgNote,imgSafe; 
 import org.gicentre.handy.*; 
 HandyRenderer h;
 Flower[] flowers = new Flower[5];
@@ -28,11 +28,72 @@ class TitleState extends State {
 
   State decideState() {
     if (btnGameStart.isPush()) { 
-      return new GameState0(); // start game
+      return new MenuState(); // start game
     }
     return this;
   }
 }
+
+class MenuState extends State {
+  void drawState() {
+    fill(0); // moji color  
+    font = createFont("굴림체",20);
+    rectMode(CENTER);
+    textAlign(CENTER, CENTER);
+    
+    //그림 읽기
+    imgBack2 = loadImage("Menu.PNG"); 
+    imgCard = loadImage("Card.png");
+    imgNote = loadImage("Note.png");
+    imgSafe = loadImage("safe.png");
+    imgHome = loadImage("home.png");
+    //imgWrite = loadImage("write.png");
+    //imgMusic = loadImage("music3.png");
+        
+    imageMode( CORNER );
+    image(imgBack2, 0, 0, width, height);
+    
+  //  버튼 생성
+    btnCard =new Button(110, 220, 100, 120,  color(190, 100, 70,190), "Flash Card");
+    btnNote =new Button(470, 180, 100, 120, color(190, 100, 70,190), "Music");   
+    btnSafe = new Button(290, 310, 100, 120, color( 220, 80, 100, 88), "Safety Education");
+    btnBack = new Button(600, 360, 100, 120, color( 220, 80, 100, 88), "Home");
+            
+  // 버튼 실행
+    btnCard.run();
+    btnNote.run();
+    btnSafe.run(); 
+    btnBack.run();
+    
+    //그림 넣기
+    image(imgCard,90, 240);
+    image(imgNote,503,160);   
+    image(imgSafe,290, 330);
+    image(imgHome,570, 290);
+       
+   }  
+  State decideState() {      
+    if (btnCard.isPush()) { // if ellapsed time is larger than
+      return new GameState0 (); // go to ending
+    }  
+     else if
+    (btnBack.isPush()) {
+      return new TitleState();    
+    }
+     else if
+    (btnSafe.isPush()) {
+      return new TitleState();    
+    }  
+     else if
+    (btnNote.isPush()) {
+      return new Music ();
+    } 
+    return this;
+  }
+
+}
+
+
 class GameState0 extends State {
   void drawState() {
     fill(0); // moji color  
