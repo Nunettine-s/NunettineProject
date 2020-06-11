@@ -15,8 +15,8 @@ import ddf.minim.*;
 Minim minim;
 AudioPlayer song1,song2,song3,song4, song5,song6,song7,song8,song9,song10;
 PFont font;
-String str = "";      // 문자열을 생성합니다.
-String[] data = new String[0];
+
+
 
 class TitleState extends State {
   void drawState() {
@@ -137,11 +137,12 @@ class RecordState extends State {
 
 class WriteState extends State {
   void drawState() {
+    
     fill(0); // moji color  
     font = createFont("굴림체",20);
     rectMode(CENTER);
-    textAlign(CENTER, CENTER);    
-       
+    textAlign(CENTER, CENTER);   
+           
     //그림 읽기
     imgBack4 = loadImage("back4.PNG"); 
     imgHome = loadImage("home.png");
@@ -411,8 +412,6 @@ class GameState3 extends State {
      imageMode(CENTER);
      image(imgReady,350,230);
       if (t>1) {
-//         text("",350, 30); // title
-  
      for(int i = 0; i < image.length ; i++){
        image[i] = loadImage("cimage" + i + ".png");
        if (btnEnd1.isPush()) 
@@ -441,7 +440,6 @@ class GameState3 extends State {
     return this;
   }
 }
-
 
 class GameState4 extends State {
   void drawState() {
