@@ -9,7 +9,7 @@ void setup() {
   fill(255);
   state = new TitleState();
   h = new HandyRenderer(this); 
-//  colorMode(HSB, 300, 50, 100);  //<>// //<>//
+//  colorMode(HSB, 300, 50, 100);  //<>// //<>// //<>//
   smooth();
   for (int i = 0;i < flowers.length;i++) {
    flowers[i] = new Flower();}
@@ -19,6 +19,7 @@ void setup() {
   song2 =  minim.loadFile("true song.mp3");
   song3 =  minim.loadFile("bear song.mp3"); 
   song4 =  minim.loadFile("tomato song.mp3");
+  song5 =  minim.loadFile("운송수단.mp3");
   song6 =  minim.loadFile("동물.mp3");
   song7 =  minim.loadFile("색깔.mp3");
   song8 =  minim.loadFile("음식.mp3");

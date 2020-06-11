@@ -307,7 +307,7 @@ class GameState1 extends State {
      
      fill(47,21,178);
      textSize(35);
-     text("탈것", 350,80);
+     text("운송수단", 350,80);
      imgReady = loadImage("imgReady.jpg");
      imageMode(CENTER);
      image(imgReady,350,230);
