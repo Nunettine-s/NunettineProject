@@ -382,7 +382,7 @@ class Safety4 extends State {
   State decideState() {
  //    image( movie, 0, 0, width, 225);
     if (btnBack.isPush()) { // if ellapsed time is larger than
-      movie1.stop();
+      movie4.stop();
       return new Safety0(); // go to ending  
     }  
     return this;   
