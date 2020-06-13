@@ -17,7 +17,6 @@ AudioPlayer song1,song2,song3,song4, song5,song6,song7,song8,song9,song10;
 PFont font;
 
 
-
 class TitleState extends State {
   void drawState() {
     font = createFont("굴림체",20);
