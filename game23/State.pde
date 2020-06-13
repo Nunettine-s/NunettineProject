@@ -317,12 +317,13 @@ class GameState1 extends State {
         image[i] = loadImage("timage" + i + ".png");
         if (btnEnd1.isPush()) 
      break;
+     song5.play();
      }  
      imageMode(CENTER);
      image(image[index],350,230);
      index = (index+1) % image.length;
      delay(wait);
-     song5.play();
+    
 }
      btnEnd1 =new Button(600, 420, 100, 80, color(190, 100, 70,190), "END");
      btnEnd1.run();
@@ -367,12 +368,13 @@ class GameState2 extends State {
        image[i] = loadImage("aimage" + i + ".png");
        if (btnEnd1.isPush()) 
      break;
-     }  
+     song6.play();
+    }
      imageMode(CENTER);
      image(image[index],350,230);
      index = (index+1) % image.length;
      delay(wait);
-     song6.play();
+     
 }
      btnEnd1 =new Button(600, 420, 100, 80, color(190, 100, 70,190), "END");
      btnEnd1.run();
@@ -416,12 +418,13 @@ class GameState3 extends State {
        image[i] = loadImage("cimage" + i + ".png");
        if (btnEnd1.isPush()) 
      break;
+     song7.play();
      }  
      imageMode(CENTER);
      image(image[index],350,230);
      index = (index+1) % image.length;
      delay(wait);
-     song7.play();
+     
 }
      btnEnd1 =new Button(600, 420, 100, 80, color(190, 100, 70,190), "END");
      btnEnd1.run();
@@ -467,12 +470,13 @@ class GameState4 extends State {
        image[i] = loadImage("food" + i + ".jpg");
        if (btnEnd1.isPush()) 
      break;
+     song8.play();
      }  
      imageMode(CENTER);
      image(image[index],350,230);
      index = (index+1) % image.length;
      delay(wait);
-     song8.play();
+   
 }
      btnEnd1 =new Button(600, 420, 100, 80, color(190, 100, 70,190), "END");
      btnEnd1.run();
@@ -507,7 +511,7 @@ class GameState5 extends State {
      text("사물", 350,80);  
      for(int i = 0; i < image.length ; i++){
        image[i] = loadImage("object" + i + ".jpg");
-
+    
      }  
      imageMode(CENTER);
      image(image[index],350,230);
@@ -516,6 +520,7 @@ class GameState5 extends State {
      song9.play();
      btnEnd1 =new Button(600, 420, 100, 80, color(190, 100, 70,190), "END");
      btnEnd1.run();
+      song9.play();
   }
   
   State decideState() {    
@@ -546,7 +551,7 @@ class GameState6 extends State {
      
      fill(47,21,178);
      textSize(35);
-     text("렌덤", 350,80);
+     text("랜덤", 350,80);
      imgReady = loadImage("imgReady.jpg");
      imageMode(CENTER);
      image(imgReady,350,230);
@@ -555,12 +560,13 @@ class GameState6 extends State {
         image[i] = loadImage("random" + i + ".jpg");
         if (btnEnd1.isPush()) 
       break;
+      song10.play();
      }  
      imageMode(CENTER);
      image(image[index],350,230);
      index = (index+1) % image.length;
      delay(wait);
-     song10.play();
+     
 }
      btnEnd1 =new Button(600, 420, 100, 80, color(190, 100, 70,190), "END");
      btnEnd1.run();
@@ -633,7 +639,7 @@ class Music extends State {
     btnWord.run(); 
     btnBack.run();
 
-    //그그림 넣기    
+    //그림 넣기    
     image(imgHome,330, 420);        
    }
   State decideState() {      
