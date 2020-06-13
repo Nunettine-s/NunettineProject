@@ -1,14 +1,14 @@
 import java.awt.*;
 import processing.video.*;
-Movie movie;
+Movie movie1,movie2,movie3,movie4;
 String msg; //状態MSG
 
 PImage image[] = new PImage[20];
 int index = 0;
 int wait = 1000;
-Button  btnVehicle,btnAnimal,btnColor,btnFood,btnNum,btnRandom,btnBack,btnRecord,btnGameStart,btnHome,btnMusic, btnEnd1, btnTomato, btnBear, btnWord, btnPig,btnEnd2,btnCard,btnSafe,btnNote,btnView,btnWrite1,btnPlay,btnStop,btnPause;  
+Button  btnVehicle,btnAnimal,btnColor,btnFood,btnNum,btnRandom,btnBack,btnRecord,btnGameStart,btnHome,btnMusic, btnEnd1, btnTomato, btnBear, btnWord, btnPig,btnEnd2,btnCard,btnSafe,btnNote,btnView,btnWrite1,btnPlay,btnStop,btnPause,btnSafety1,btnSafety2,btnSafety3,btnSafety4;  
 
-PImage  img,imgVehicle,imgAnimal,imgColor,imgFood,imgNum,imgRondom,imgBack,imgStart,imgTitle,imgWrite,imgHome,imgMusic,imgReady,bgd,random,imgBack2,imgCard,imgNote,imgSafe,imgBack5,imgView,imgBack4,imgWrite1,imgPlay,imgStop,imgPause ; 
+PImage  img,imgVehicle,imgAnimal,imgColor,imgFood,imgNum,imgRondom,imgBack,imgStart,imgTitle,imgWrite,imgHome,imgMusic,imgReady,bgd,random,imgBack2,imgCard,imgNote,imgSafe,imgBack5,imgView,imgBack4,imgWrite1,imgPlay,imgStop,imgPause,imgSafety1,imgSafety2,imgSafety3,imgSafety4,imgBack3; 
 import org.gicentre.handy.*; 
 HandyRenderer h;
 Flower[] flowers = new Flower[5];
@@ -85,7 +85,7 @@ class MenuState extends State {
     }
      else if
     (btnSafe.isPush()) {
-      return new SaftyState();    
+      return new Safety0();    
     }  
      else if
     (btnNote.isPush()) {
@@ -93,15 +93,82 @@ class MenuState extends State {
     } 
     return this;
   }
+}
+
+class Safety0 extends State {
+  void drawState() {
+    fill(0); // moji color  
+    font = createFont("굴림체",20);
+    rectMode(CENTER);
+    textAlign(CENTER, CENTER);
+    imgHome = loadImage("home.png"); 
+    imgBack3 = loadImage("back3.png");
+    imageMode( CORNER );
+    image(imgBack3, 0, 0, width, height);
+    
+    //그림 읽기
+    imgSafety1 = loadImage("imSafety1.png");
+    imgSafety2 = loadImage("imSafety2.png");
+    imgSafety3 = loadImage("imSafety3.png");
+    imgSafety4 = loadImage("imSafety4.png");
+    
+  //  버튼 생성
+    btnSafety1 =new Button(200, 150, 130, 130, color(190, 100, 70,190), "");
+    btnSafety2 =new Button(500, 150, 130, 130, color(190, 100, 70,190), "");
+    btnSafety3 =new Button(200, 320, 130, 130, color(190, 100, 70,190), "");
+    btnSafety4 =new Button(500, 320, 130, 130, color(190, 100, 70,190), ""); 
+    btnBack = new Button(360, 450, 100, 50, color( 220, 80, 100, 88), "");
+
+      
+  // 버튼 실행
+    btnSafety1.run();
+    btnSafety2.run();
+    btnSafety3.run(); 
+    btnSafety4.run(); 
+    btnBack.run();
+    
+    
+        //그림 넣기
+    image(imgSafety1,115, 60);
+    image(imgSafety2,430,60);   
+    image(imgSafety3,115, 250);
+    image(imgSafety4,430, 250);  
+
+    //그그림 넣기    
+    image(imgHome,330, 420);        
+   }
+  State decideState() {      
+    if (btnSafety1.isPush()) { // if ellapsed time is larger than
+      return new Safety1 (); // go to ending
+    }  
+    else if
+    (btnSafety2.isPush()) {
+      return new Safety2 ();    
+    } 
+     else if
+    (btnSafety3.isPush()) {
+      return new Safety3 ();   
+    } 
+     else if
+    (btnSafety4.isPush()) {
+      return new Safety4 ();
+    } 
+     else if
+    (btnBack.isPush()) {
+      return new TitleState();
+    } 
+    return this;
+  }
 
 }
 
-class SaftyState extends State {
+
+class Safety1 extends State {
    void drawState() {
    background(0);
    
    //video
-   image( movie, 0, 0, width, height);
+   image( movie1, 0, 0, width, height);
         //<>//
    //그림 읽기
    imgHome = loadImage("home.png");
@@ -130,22 +197,22 @@ class SaftyState extends State {
   
     if(btnStop.isPush()){
       msg = "STOP";
-      movie.stop();
+      movie1.stop();
     }
     else if(btnPlay.isPush()){ //제생
       msg = "PLAY";
-      movie.play();
+      movie1.play();
      } else if( btnPause.isPush()){ 
    msg = "PAUSE";
-   movie.pause();
+   movie1.pause();
   } 
  }
      
   State decideState() {
  //    image( movie, 0, 0, width, 225);
     if (btnBack.isPush()) { // if ellapsed time is larger than
-      movie.stop();
-      return new MenuState(); // go to ending  
+      movie1.stop();
+      return new Safety0(); // go to ending  
     }  
     return this;   
 
@@ -153,7 +220,175 @@ class SaftyState extends State {
 }
 
 
+class Safety2 extends State {
+   void drawState() {
+   background(0);
+   
+   //video
+   image( movie2, 0, 0, width, height);
+       
+   //그림 읽기
+   imgHome = loadImage("home.png");
+   imgPlay = loadImage("play.png");
+   imgStop = loadImage("stop.png");
+   imgPause = loadImage("pause.png");
+    
+    //  버튼 생성
+    btnBack = new Button(632, 438, 70, 70, color( 220, 80, 100, 88), "");
+    btnStop = new Button(42, 438, 50, 50, color( 220, 80, 100, 88), "");
+    btnPlay = new Button(110, 438, 50, 50, color( 220, 80, 100, 88), "");
+    btnPause = new Button(180, 438, 50, 50, color( 220, 80, 100, 88), "");
+   
+    // 버튼 실행
+    btnBack.run();
+    btnPlay.run();
+    btnStop.run();
+    btnPause.run();
+    
+         //그림 넣기
+    image(imgHome,600, 400);
+    image(imgStop,5, 400);
+    image(imgPlay,68, 400);
+    image(imgPause,140, 400);
+         
+  
+    if(btnStop.isPush()){
+      msg = "STOP";
+      movie2.stop();
+    }
+    else if(btnPlay.isPush()){ //제생
+      msg = "PLAY";
+      movie2.play();
+     } else if( btnPause.isPush()){ 
+   msg = "PAUSE";
+   movie2.pause();
+  } 
+ }
+     
+  State decideState() {
+ //    image( movie, 0, 0, width, 225);
+    if (btnBack.isPush()) { // if ellapsed time is larger than
+      movie2.stop();
+      return new Safety0(); // go to ending  
+    }  
+    return this;   
 
+  }
+}
+
+
+class Safety3 extends State {
+   void drawState() {
+   background(0);
+   
+   //video
+   image( movie3, 0, 0, width, height);
+       
+   //그림 읽기
+   imgHome = loadImage("home.png");
+   imgPlay = loadImage("play.png");
+   imgStop = loadImage("stop.png");
+   imgPause = loadImage("pause.png");
+    
+    //  버튼 생성
+    btnBack = new Button(632, 438, 70, 70, color( 220, 80, 100, 88), "");
+    btnStop = new Button(42, 438, 50, 50, color( 220, 80, 100, 88), "");
+    btnPlay = new Button(110, 438, 50, 50, color( 220, 80, 100, 88), "");
+    btnPause = new Button(180, 438, 50, 50, color( 220, 80, 100, 88), "");
+   
+    // 버튼 실행
+    btnBack.run();
+    btnPlay.run();
+    btnStop.run();
+    btnPause.run();
+    
+         //그림 넣기
+    image(imgHome,600, 400);
+    image(imgStop,5, 400);
+    image(imgPlay,68, 400);
+    image(imgPause,140, 400);
+         
+  
+    if(btnStop.isPush()){
+      msg = "STOP";
+      movie3.stop();
+    }
+    else if(btnPlay.isPush()){ //제생
+      msg = "PLAY";
+      movie3.play();
+     } else if( btnPause.isPush()){ 
+   msg = "PAUSE";
+   movie3.pause();
+  } 
+ }
+     
+  State decideState() {
+ //    image( movie, 0, 0, width, 225);
+    if (btnBack.isPush()) { // if ellapsed time is larger than
+      movie3.stop();
+      return new Safety0(); // go to ending  
+    }  
+    return this;   
+
+  }
+}
+
+
+class Safety4 extends State {
+   void drawState() {
+   background(0);
+   
+   //video
+   image( movie4, 0, 0, width, height);
+       
+   //그림 읽기
+   imgHome = loadImage("home.png");
+   imgPlay = loadImage("play.png");
+   imgStop = loadImage("stop.png");
+   imgPause = loadImage("pause.png");
+    
+    //  버튼 생성
+    btnBack = new Button(632, 438, 70, 70, color( 220, 80, 100, 88), "");
+    btnStop = new Button(42, 438, 50, 50, color( 220, 80, 100, 88), "");
+    btnPlay = new Button(110, 438, 50, 50, color( 220, 80, 100, 88), "");
+    btnPause = new Button(180, 438, 50, 50, color( 220, 80, 100, 88), "");
+   
+    // 버튼 실행
+    btnBack.run();
+    btnPlay.run();
+    btnStop.run();
+    btnPause.run();
+    
+         //그림 넣기
+    image(imgHome,600, 400);
+    image(imgStop,5, 400);
+    image(imgPlay,68, 400);
+    image(imgPause,140, 400);
+         
+  
+    if(btnStop.isPush()){
+      msg = "STOP";
+      movie4.stop();
+    }
+    else if(btnPlay.isPush()){ //제생
+      msg = "PLAY";
+      movie4.play();
+     } else if( btnPause.isPush()){ 
+   msg = "PAUSE";
+   movie1.pause();
+  } 
+ }
+     
+  State decideState() {
+ //    image( movie, 0, 0, width, 225);
+    if (btnBack.isPush()) { // if ellapsed time is larger than
+      movie1.stop();
+      return new Safety0(); // go to ending  
+    }  
+    return this;   
+
+  }
+}
 
 
 

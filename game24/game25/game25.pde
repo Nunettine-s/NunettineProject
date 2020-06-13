@@ -16,7 +16,10 @@ void setup() {
    flowers[i] = new Flower();}
    
   
-  movie = new Movie(this,"Safty1.mp4");
+  movie1 = new Movie(this,"Safety1.mp4");
+  movie2 = new Movie(this,"Safety2.mp4");
+  movie3 = new Movie(this,"Safety3.mp4");
+  movie4 = new Movie(this,"Safety4.mp4");
 
   
   
