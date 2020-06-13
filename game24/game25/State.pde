@@ -169,21 +169,21 @@ class Safety1 extends State {
    
    //video
    image( movie1, 0, 0, width, height);
-        //<>//
+       
    //그림 읽기
    imgHome = loadImage("home.png");
    imgPlay = loadImage("play.png");
    imgStop = loadImage("stop.png");
    imgPause = loadImage("pause.png");
     
-    //  버튼 생성 //<>//
+    //  버튼 생성
     btnBack = new Button(632, 438, 70, 70, color( 220, 80, 100, 88), "");
     btnStop = new Button(42, 438, 50, 50, color( 220, 80, 100, 88), "");
     btnPlay = new Button(110, 438, 50, 50, color( 220, 80, 100, 88), "");
     btnPause = new Button(180, 438, 50, 50, color( 220, 80, 100, 88), "");
    
     // 버튼 실행
-    btnBack.run(); //<>//
+    btnBack.run();
     btnPlay.run();
     btnStop.run();
     btnPause.run();
