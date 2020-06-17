@@ -41,6 +41,7 @@ void setup() {
   song10 =  minim.loadFile("랜덤.mp3");
   song11 = minim.loadFile("yes.mp3");
   song12 =  minim.loadFile("no.mp3");
+  // 새로운 작업합니다.
 
 }
 
