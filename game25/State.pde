@@ -14,7 +14,7 @@ Button  btnVehicle,btnAnimal,btnColor,btnFood,btnNum,btnRandom,btnBack,btnRecord
 PImage  img,imgVehicle,imgAnimal,imgColor,imgFood,imgNum,imgRondom,imgBack,imgStart,imgTitle,imgWrite,
         imgHome,imgMusic,imgReady,bgd,random,imgBack2,imgCard,imgNote,imgSafe,imgBack5,imgView,imgBack4,
         imgWrite1,imgPlay,imgStop,imgPause,imgSafety1,imgSafety2,imgSafety3,imgSafety4,imgBack3,imgQuiz,
-        imgblue,imgred,imgopen,imgnotOpen,imgtouch,imgdontTouch,imgBack6,imgNum1,imgNum2,imgNum3,imgNum4,imgeat,imghand; 
+        imgblue,imgred,imgopen,imgnotOpen,imgtouch,imgdontTouch,imgBack6,imgNum1,imgNum2,imgNum3,imgNum4,imgeat,imghand,imgQback; 
         
 import org.gicentre.handy.*; 
 HandyRenderer h;
@@ -515,7 +515,7 @@ class SafetyQuiz extends State {
     image(imgNum3,130, 290);
     image(imgNum4,445, 290);
     image(imgHome,330, 420);  
-         
+     
   //  버튼 생성
     btnNum1 =new Button(200, 150, 130, 130,  color(0, 0, 0,0), "");
     btnNum2 =new Button(500, 150, 130, 130, color(0, 0, 0,0), "");   
@@ -561,6 +561,15 @@ class SafetyQuiz1 extends State {
    void drawState() {
    background(0);
    
+   imgQback = loadImage("imgQback.png");
+   imgeat = loadImage("image4.png");
+   imghand = loadImage("image5.png");
+   imgHome = loadImage("home.png");    
+   image(imgQback, 0, 0, width, height);
+   image(imgHome,620, 430);  
+   
+    
+   
    fill(250,10);
    rect(10,200,340,250);
   
@@ -580,24 +589,18 @@ class SafetyQuiz1 extends State {
       fill(237,34,82);
       rect(10,200,340,250);
       image(imgeat,30,220,300,200);
+      song12.play();
       
   
     }else{
-    fill(69,77,230);
-    rect(350,200,340,250);
-    image(imghand,370,220,300,200);
+      fill(69,77,230);
+      rect(350,200,340,250);
+      image(imghand,370,220,300,200);
+      song11.play();
     }
   
-    //그림 읽기
-    imgeat = loadImage("image4.PNG");
-    imghand = loadImage("image5.PNG");
-    //imgopen = loadImage("open.PNG");
-    //imgnotOpen = loadImage("notOpen.PNG");
-    //imgtouch = loadImage("touch.PNG");
-    //imgdontTouch = loadImage("dontTouch.PNG");
-      
      //  버튼 생성
-     btnBack = new Button(632, 438, 70, 70, color( 220, 80, 100, 88), "");
+     btnBack = new Button(620, 430, 70, 70, color(0,0,0,0), "");
      // 버튼 실행
      btnBack.run();
 }
@@ -616,6 +619,15 @@ class SafetyQuiz2 extends State {
    void drawState() {
    background(0);
    
+   imgQback = loadImage("imgQback.png");
+   imgHome = loadImage("home.png");
+   image(imgQback, 0, 0, width, height);
+   image(imgHome,620, 430); 
+   
+   //그림 읽기
+   imgopen = loadImage("open.PNG");
+   imgnotOpen = loadImage("notOpen.PNG");
+    
    fill(250,10);
    rect(10,200,340,250);
   
@@ -629,26 +641,25 @@ class SafetyQuiz2 extends State {
     textSize(25);
     text("모르는 사람이 문을 열어 달라고 하면?",100,70);
     
-    
     if(mouseX<width/2){
       
       fill(237,34,82);
       rect(10,200,340,250);
       image(imgnotOpen,30,220,300,200);
+      song11.play();
       
   
     }else{
-    fill(69,77,230);
-    rect(350,200,340,250);
-    image(imgopen,370,220,300,200);
+      fill(69,77,230);
+      rect(350,200,340,250);
+      image(imgopen,370,220,300,200);
+      song12.play();
     }
   
-    //그림 읽기
-    imgopen = loadImage("open.PNG");
-    imgnotOpen = loadImage("notOpen.PNG");
+
       
      //  버튼 생성
-     btnBack = new Button(632, 438, 70, 70, color( 220, 80, 100, 88), "");
+     btnBack = new Button(632, 438, 70, 70, color(0,0,0,0), "");
      // 버튼 실행
      btnBack.run();
 }
@@ -666,6 +677,15 @@ class SafetyQuiz2 extends State {
 class SafetyQuiz3 extends State {
    void drawState() {
    background(0);
+   
+   imgQback = loadImage("imgQback.png");
+   imgHome = loadImage("home.png");
+   image(imgQback, 0, 0, width, height);
+   image(imgHome,620, 430); 
+   
+   //그림 읽기
+   imgtouch = loadImage("touch.PNG");
+   imgdontTouch = loadImage("dontTouch.PNG");
    
    fill(250,10);
    rect(10,200,340,250);
@@ -687,20 +707,20 @@ class SafetyQuiz3 extends State {
       fill(237,34,82);
       rect(10,200,340,250);
       image(imgtouch,30,220,300,200);
+      song11.play();
       
   
     }else{
-    fill(69,77,230);
-    rect(350,200,340,250);
-    image(imgdontTouch,370,220,300,200);
+      fill(69,77,230);
+      rect(350,200,340,250);
+      image(imgdontTouch,370,220,300,200);
+      song12.play();
     }
   
-    //그림 읽기
-    imgtouch = loadImage("touch.PNG");
-    imgdontTouch = loadImage("dontTouch.PNG");
+
       
      //  버튼 생성
-     btnBack = new Button(632, 438, 70, 70, color( 220, 80, 100, 88), "");
+     btnBack = new Button(632, 438, 70, 70, color(0,0,0,0), "");
      // 버튼 실행
      btnBack.run();
 }
@@ -718,6 +738,15 @@ class SafetyQuiz3 extends State {
 class SafetyQuiz4 extends State {
    void drawState() {
    background(0);
+   
+   imgQback = loadImage("imgQback.png");
+   imgHome = loadImage("home.png");
+   image(imgQback, 0, 0, width, height);
+   image(imgHome,620, 430); 
+   
+   //그림 읽기
+   imgblue = loadImage("blue.PNG");
+   imgred = loadImage("red.PNG");
    
    fill(250,10);
    rect(10,200,340,250);
@@ -738,20 +767,19 @@ class SafetyQuiz4 extends State {
       fill(237,34,82);
       rect(10,200,340,250);
       image(imgred,30,220,300,200);
+      song11.play();
       
   
     }else{
     fill(69,77,230);
     rect(350,200,340,250);
     image(imgblue,370,220,300,200);
+    song12.play();
     }
   
-    //그림 읽기
-    imgblue = loadImage("blue.PNG");
-    imgred = loadImage("red.PNG");
       
      //  버튼 생성
-     btnBack = new Button(632, 438, 70, 70, color( 220, 80, 100, 88), "");
+     btnBack = new Button(632, 438, 70, 70, color(0,0,0,0), "");
      // 버튼 실행
      btnBack.run();
 }
