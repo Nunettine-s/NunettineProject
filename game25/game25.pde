@@ -39,6 +39,8 @@ void setup() {
   song8 =  minim.loadFile("음식.mp3");
   song9 =  minim.loadFile("사물.mp3");
   song10 =  minim.loadFile("랜덤.mp3");
+  song11 = minim.loadFile("yes.mp3");
+  song12 =  minim.loadFile("no.mp3");
 
 }
 
