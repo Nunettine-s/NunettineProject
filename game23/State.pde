@@ -1,30 +1,19 @@
-import java.awt.*; //<>// //<>// //<>//
-import processing.video.*;
-Movie movie1,movie2,movie3,movie4;
-String msg; //状態MSG
+import java.awt.*;
 
+PImage img;
 PImage image[] = new PImage[20];
 int index = 0;
 int wait = 1000;
-Button  btnVehicle,btnAnimal,btnColor,btnFood,btnNum,btnRandom,btnBack,btnRecord,btnGameStart,
-        btnHome,btnMusic, btnEnd1, btnTomato, btnBear, btnWord, btnPig,btnEnd2,btnCard,btnSafe,
-        btnNote,btnView,btnWrite1,btnPlay,btnStop,btnPause,btnSafety1,btnSafety2,btnSafety3,
-        btnSafety4,btnNum1,btnNum2,btnNum3,btnNum4,btnQuiz;  
+Button  btnVehicle,btnAnimal,btnColor,btnFood,btnNum,btnRandom,btnBack,btnRecord,btnGameStart,btnHome,btnMusic, btnEnd1, btnTomato, btnBear, btnWord, btnPig,btnEnd2,btnCard,btnSafe,btnNote,btnView,btnWrite1;  
 
-PImage  img,imgVehicle,imgAnimal,imgColor,imgFood,imgNum,imgRondom,imgBack,imgStart,imgTitle,imgWrite,
-        imgHome,imgMusic,imgReady,bgd,random,imgBack2,imgCard,imgNote,imgSafe,imgBack5,imgView,imgBack4,
-        imgWrite1,imgPlay,imgStop,imgPause,imgSafety1,imgSafety2,imgSafety3,imgSafety4,imgBack3,imgQuiz,
-        imgblue,imgred,imgopen,imgnotOpen,imgtouch,imgdontTouch,imgBack6,imgNum1,imgNum2,imgNum3,imgNum4,imgeat,imghand,
-        imgQback,cimgB,cimgR; 
-        
+PImage  imgVehicle,imgAnimal,imgColor,imgFood,imgNum,imgRondom,imgBack,imgStart,imgTitle,imgWrite,imgHome,imgMusic,imgReady,bgd,random,imgBack2,imgCard,imgNote,imgSafe,imgBack5,imgView,imgBack4,imgWrite1 ; 
 import org.gicentre.handy.*; 
 HandyRenderer h;
 Flower[] flowers = new Flower[5];
 
 import ddf.minim.*;
 Minim minim;
-AudioPlayer song1,song2,song3,song4, song5,song6,song7,song8,
-            song9,song10,song11,song12;
+AudioPlayer song1,song2,song3,song4, song5,song6,song7,song8,song9,song10;
 PFont font;
 
 
@@ -70,19 +59,19 @@ class MenuState extends State {
     btnNote =new Button(470, 180, 100, 120, color(190, 100, 70,190), "Music");   
     btnSafe = new Button(290, 310, 100, 120, color( 220, 80, 100, 88), "Safety Education");
     btnBack = new Button(600, 360, 100, 120, color( 220, 80, 100, 88), "Home");
-     
-    //그림 넣기
-    image(imgCard,90, 240);
-    image(imgNote,503,160);   
-    image(imgSafe,290, 330);
-    image(imgHome,570, 290);            
             
   // 버튼 실행
     btnCard.run();
     btnNote.run();
     btnSafe.run(); 
     btnBack.run();
-           
+    
+    //그림 넣기
+    image(imgCard,90, 240);
+    image(imgNote,503,160);   
+    image(imgSafe,290, 330);
+    image(imgHome,570, 290);
+       
    }  
   State decideState() {      
     if (btnCard.isPush()) { // if ellapsed time is larger than
@@ -94,7 +83,7 @@ class MenuState extends State {
     }
      else if
     (btnSafe.isPush()) {
-      return new Safety0();    
+      return new TitleState();    
     }  
      else if
     (btnNote.isPush()) {
@@ -102,312 +91,8 @@ class MenuState extends State {
     } 
     return this;
   }
-}
-
-class Safety0 extends State {
-  void drawState() {
-    fill(0); // moji color  
-    font = createFont("굴림체",20);
-    rectMode(CENTER);
-    textAlign(CENTER, CENTER);
-    imgHome = loadImage("home.png");
-    imgQuiz = loadImage("Qize.png");
-    imgBack3 = loadImage("back3.png");
-    imageMode( CORNER );
-    image(imgBack3, 0, 0, width, height);
-    
-    //그림 읽기
-    imgSafety1 = loadImage("imSafety1.png");
-    imgSafety2 = loadImage("imSafety2.png");
-    imgSafety3 = loadImage("imSafety3.png");
-    imgSafety4 = loadImage("imSafety4.png");
-    
-  //  버튼 생성
-    btnSafety1 =new Button(200, 150, 130, 130, color(190, 100, 70,190), "");
-    btnSafety2 =new Button(500, 150, 130, 130, color(190, 100, 70,190), "");
-    btnSafety3 =new Button(200, 320, 130, 130, color(190, 100, 70,190), "");
-    btnSafety4 =new Button(500, 320, 130, 130, color(190, 100, 70,190), ""); 
-    btnBack = new Button(360, 450, 100, 50, color(0, 0, 0,0), "");
-    btnQuiz = new Button(355,230,110,110,color(0, 0, 0,0), "");
-
-      
-  // 버튼 실행
-    btnSafety1.run();
-    btnSafety2.run();
-    btnSafety3.run(); 
-    btnSafety4.run();
-    btnQuiz.run();
-    btnBack.run();
-    
-    
-        //그림 넣기
-    image(imgSafety1,115, 60);
-    image(imgSafety2,430,60);   
-    image(imgSafety3,115, 250);
-    image(imgSafety4,430, 250);  
-
-    //그그림 넣기    
-    image(imgHome,330, 420);
-    image(imgQuiz,320,200);    
-   }
-  State decideState() {      
-    if (btnSafety1.isPush()) { // if ellapsed time is larger than
-      return new Safety1 (); // go to ending
-    }  
-    else if
-    (btnSafety2.isPush()) {
-      return new Safety2 ();    
-    } 
-     else if
-    (btnSafety3.isPush()) {
-      return new Safety3 ();   
-    } 
-     else if
-    (btnSafety4.isPush()) {
-      return new Safety4 ();
-    }
-    else if
-    (btnQuiz.isPush()) {
-      return new SafetyQuiz();
-    } 
-     else if
-    (btnBack.isPush()) {
-      return new TitleState();
-    } 
-    return this;
-  }
 
 }
-
-
-class Safety1 extends State {
-   void drawState() {
-   background(0);
-   
-   //video
-   image( movie1, 0, 0, width, height);
-       
-   //그림 읽기
-   imgHome = loadImage("home.png");
-   imgPlay = loadImage("play.png");
-   imgStop = loadImage("stop.png");
-   imgPause = loadImage("pause.png");
-    
-    //  버튼 생성
-    btnBack = new Button(632, 438, 70, 70, color( 220, 80, 100, 88), "");
-    btnStop = new Button(42, 438, 50, 50, color( 220, 80, 100, 88), "");
-    btnPlay = new Button(110, 438, 50, 50, color( 220, 80, 100, 88), "");
-    btnPause = new Button(180, 438, 50, 50, color( 220, 80, 100, 88), "");
-   
-    // 버튼 실행
-    btnBack.run();
-    btnPlay.run();
-    btnStop.run();
-    btnPause.run();
-    
-         //그림 넣기
-    image(imgHome,600, 400);
-    image(imgStop,5, 400);
-    image(imgPlay,68, 400);
-    image(imgPause,140, 400);
-         
-  
-    if(btnStop.isPush()){
-      msg = "STOP";
-      movie1.stop();
-    }
-    else if(btnPlay.isPush()){ //제생
-      msg = "PLAY";
-      movie1.play();
-     } else if( btnPause.isPush()){ 
-   msg = "PAUSE";
-   movie1.pause();
-  } 
- }
-     
-  State decideState() {
- //    image( movie, 0, 0, width, 225);
-    if (btnBack.isPush()) { // if ellapsed time is larger than
-      movie1.stop();
-      return new Safety0(); // go to ending  
-    }  
-    return this;   
-
-  }
-}
-
-
-class Safety2 extends State {
-   void drawState() {
-   background(0);
-   
-   //video
-   image( movie2, 0, 0, width, height);
-       
-   //그림 읽기
-   imgHome = loadImage("home.png");
-   imgPlay = loadImage("play.png");
-   imgStop = loadImage("stop.png");
-   imgPause = loadImage("pause.png");
-    
-    //  버튼 생성
-    btnBack = new Button(632, 438, 70, 70, color( 220, 80, 100, 88), "");
-    btnStop = new Button(42, 438, 50, 50, color( 220, 80, 100, 88), "");
-    btnPlay = new Button(110, 438, 50, 50, color( 220, 80, 100, 88), "");
-    btnPause = new Button(180, 438, 50, 50, color( 220, 80, 100, 88), "");
-   
-    // 버튼 실행
-    btnBack.run();
-    btnPlay.run();
-    btnStop.run();
-    btnPause.run();
-    
-         //그림 넣기
-    image(imgHome,600, 400);
-    image(imgStop,5, 400);
-    image(imgPlay,68, 400);
-    image(imgPause,140, 400);
-         
-  
-    if(btnStop.isPush()){
-      msg = "STOP";
-      movie2.stop();
-    }
-    else if(btnPlay.isPush()){ //제생
-      msg = "PLAY";
-      movie2.play();
-     } else if( btnPause.isPush()){ 
-   msg = "PAUSE";
-   movie2.pause();
-  } 
- }
-     
-  State decideState() {
- //    image( movie, 0, 0, width, 225);
-    if (btnBack.isPush()) { // if ellapsed time is larger than
-      movie2.stop();
-      return new Safety0(); // go to ending  
-    }  
-    return this;   
-
-  }
-}
-
-
-class Safety3 extends State {
-   void drawState() {
-   background(0);
-   
-   //video
-   image( movie3, 0, 0, width, height);
-       
-   //그림 읽기
-   imgHome = loadImage("home.png");
-   imgPlay = loadImage("play.png");
-   imgStop = loadImage("stop.png");
-   imgPause = loadImage("pause.png");
-    
-    //  버튼 생성
-    btnBack = new Button(632, 438, 70, 70, color( 220, 80, 100, 88), "");
-    btnStop = new Button(42, 438, 50, 50, color( 220, 80, 100, 88), "");
-    btnPlay = new Button(110, 438, 50, 50, color( 220, 80, 100, 88), "");
-    btnPause = new Button(180, 438, 50, 50, color( 220, 80, 100, 88), "");
-   
-    // 버튼 실행
-    btnBack.run();
-    btnPlay.run();
-    btnStop.run();
-    btnPause.run();
-    
-         //그림 넣기
-    image(imgHome,600, 400);
-    image(imgStop,5, 400);
-    image(imgPlay,68, 400);
-    image(imgPause,140, 400);
-         
-  
-    if(btnStop.isPush()){
-      msg = "STOP";
-      movie3.stop();
-    }
-    else if(btnPlay.isPush()){ //제생
-      msg = "PLAY";
-      movie3.play();
-     } else if( btnPause.isPush()){ 
-   msg = "PAUSE";
-   movie3.pause();
-  } 
- }
-     
-  State decideState() {
- //    image( movie, 0, 0, width, 225);
-    if (btnBack.isPush()) { // if ellapsed time is larger than
-      movie3.stop();
-      return new Safety0(); // go to ending  
-    }  
-    return this;   
-
-  }
-}
-
-
-class Safety4 extends State {
-   void drawState() {
-   background(0);
-   
-   //video
-   image( movie4, 0, 0, width, height);
-       
-   //그림 읽기
-   imgHome = loadImage("home.png");
-   imgPlay = loadImage("play.png");
-   imgStop = loadImage("stop.png");
-   imgPause = loadImage("pause.png");
-    
-    //  버튼 생성
-    btnBack = new Button(632, 438, 70, 70, color( 220, 80, 100, 88), "");
-    btnStop = new Button(42, 438, 50, 50, color( 220, 80, 100, 88), "");
-    btnPlay = new Button(110, 438, 50, 50, color( 220, 80, 100, 88), "");
-    btnPause = new Button(180, 438, 50, 50, color( 220, 80, 100, 88), "");
-   
-    // 버튼 실행
-    btnBack.run();
-    btnPlay.run();
-    btnStop.run();
-    btnPause.run();
-    
-         //그림 넣기
-    image(imgHome,600, 400);
-    image(imgStop,5, 400);
-    image(imgPlay,68, 400);
-    image(imgPause,140, 400);
-         
-  
-    if(btnStop.isPush()){
-      msg = "STOP";
-      movie4.stop();
-    }
-    else if(btnPlay.isPush()){ //제생
-      msg = "PLAY";
-      movie4.play();
-     } else if( btnPause.isPush()){ 
-   msg = "PAUSE";
-   movie1.pause();
-  } 
- }
-     
-  State decideState() {
- //    image( movie, 0, 0, width, 225);
-    if (btnBack.isPush()) { // if ellapsed time is larger than
-      movie4.stop();
-      return new Safety0(); // go to ending  
-    }  
-    return this;   
-
-  }
-}
-
-
 
 class RecordState extends State {
   void drawState() {
@@ -428,7 +113,6 @@ class RecordState extends State {
     btnBack = new Button(632, 438, 50, 50, color( 220, 80, 100, 88), "");
     btnView = new Button(70, 438, 50, 50, color( 220, 80, 100, 88), "");
             
-
   // 버튼 실행
     btnBack.run();
     btnView.run();
@@ -491,306 +175,7 @@ class WriteState extends State {
   }
 }
 
-// 퀴즈 main
 
-class SafetyQuiz extends State {
-  void drawState() {
-    fill(0); 
-    rectMode(CENTER);
-    textAlign(CENTER, CENTER);
-    imgBack6 = loadImage("bacQuiz.PNG");
-    imgHome = loadImage("home.png");
-    imageMode( CORNER );
-    image(imgBack6, 0, 0, width, height);    
-         
-    
-    //그림 읽기
-    imgNum1 = loadImage("Num1.png");     
-    imgNum2 = loadImage("Num2.png");
-    imgNum3 = loadImage("Num3.png");
-    imgNum4 = loadImage("Num4.png");
-    
-     //그림 넣기
-    image(imgNum1,130, 140);
-    image(imgNum2,445,140);   
-    image(imgNum3,130, 290);
-    image(imgNum4,445, 290);
-    image(imgHome,330, 420);  
-     
-  //  버튼 생성
-    btnNum1 =new Button(200, 150, 130, 130,  color(0, 0, 0,0), "");
-    btnNum2 =new Button(500, 150, 130, 130, color(0, 0, 0,0), "");   
-    btnNum3 = new Button(200, 320, 130, 130, color(0, 0, 0,0), "");
-    btnNum4 = new Button(500, 320, 130, 130, color(0, 0, 0,0), "");
-    btnBack = new Button(360, 450, 100, 50, color(0, 0, 0,0), "");
-        
-  // 버튼 실행
-    btnNum1.run();
-    btnNum2.run();
-    btnNum3.run(); 
-    btnNum4.run();
-    btnBack.run();
-   }
-  
-  State decideState() {      
-    if (btnNum1.isPush()) { // if ellapsed time is larger than
-      return new SafetyQuiz1 (); // go to ending
-    }  
-    else if
-    (btnNum2.isPush()) {
-      return new SafetyQuiz2 ();    
-    } 
-     else if
-    (btnNum3.isPush()) {
-      return new SafetyQuiz3 ();   
-    } 
-     else if
-    (btnNum4.isPush()) {
-      return new SafetyQuiz4 ();
-    } 
-     else if
-    (btnBack.isPush()) {
-      return new TitleState();
-    } 
-    return this;
-  }
-
-}
-           
-// 퀴즈 sub
-class SafetyQuiz1 extends State {
-   void drawState() {
-   background(0);
-  
-   imgQback = loadImage("imgQback.png");
-   imgeat = loadImage("image4.png");
-   imghand = loadImage("image5.png");
-   imgHome = loadImage("home.png");  
-   cimgB = loadImage("cimgB.png");  
-   cimgR = loadImage("cimgR.png");  
-   image(imgQback, 0, 0, width, height);
-   image(imgHome,620, 430);  
-    
-
-  //1번퀴즈
-  
-   fill(0);
-   textFont(font);
-   textSize(25);
-   text("밖에서 놀다가 들어오면 제일 먼저 해야 할 일은?",330,70);
-   
-   fill(250,10);
-   rect(10,200,340,250);
-  
-   fill(250,10);
-   rect(350,200,340,250);
-   
-   if(mouseX<width/2){
-      image(cimgR,10,200,340,250);
-      image(imgeat,30,220,300,200);
-    }
-   
-    else{ 
-       image(cimgB,350,200,340,250);
-       image(imghand,370,220,300,200);
-    }  
-} 
-  // 1번퀴즈, 3번퀴즈일 경우 정답처리
-   void mousePressed(){
-    if(mouseX>=350 && mouseY>=200){
-        song11.play();
-  
-     }else if (mouseX<=350 && mouseY>=200){
-        song12.play();
-  }
-     //  버튼 생성
-     btnBack = new Button(620, 430, 70, 70, color(0,0,0,0), "");
-     // 버튼 실행
-     btnBack.run();
-}
-
-
-     
-  State decideState() {
-    if (btnBack.isPush()) { // if ellapsed time is larger than
-      return new SafetyQuiz(); // go to ending  
-    }  
-    return this;   
-
-  }
-}
-// 윗부분 테스트2
-
-class SafetyQuiz2 extends State {
-   void drawState() {
-   background(0);
-   
-   imgQback = loadImage("imgQback.png");
-   imgHome = loadImage("home.png");
-   cimgB = loadImage("cimgB.png");  
-   cimgR = loadImage("cimgR.png");  
-   image(imgQback, 0, 0, width, height);
-   image(imgHome,620, 430); 
-   
-   //그림 읽기
-   imgopen = loadImage("open.PNG");
-   imgnotOpen = loadImage("notOpen.PNG");
-    
-   fill(250,10);
-   rect(10,200,340,250);
-  
-   fill(250,10);
-   rect(350,200,340,250);
-  
-  //2번퀴즈
-  
-    fill(0);
-    textFont(font);
-    textSize(25);
-    text("모르는 사람이 문을 열어 달라고 하면?",100,70);
-    
-    if(mouseX<width/2){
-      image(cimgR,10,200,340,250);
-      image(imgnotOpen,30,220,300,200);
-  
-    }else{
-      image(cimgB,10,200,340,250);
-      image(imgopen,370,220,300,200);
-    }
-  
-
-      
-     //  버튼 생성
-     btnBack = new Button(632, 438, 70, 70, color(0,0,0,0), "");
-     // 버튼 실행
-     btnBack.run();
-}
-     
-  State decideState() {
-    if (btnBack.isPush()) { // if ellapsed time is larger than
-      return new SafetyQuiz(); // go to ending  
-    }  
-    return this;   
-
-  }
-}
-//3
-
-class SafetyQuiz3 extends State {
-   void drawState() {
-   background(0);
-   
-   imgQback = loadImage("imgQback.png");
-   imgHome = loadImage("home.png");
-   cimgB = loadImage("cimgB.png");  
-   cimgR = loadImage("cimgR.png");  
-   image(imgQback, 0, 0, width, height);
-   image(imgHome,620, 430); 
-   
-   //그림 읽기
-   imgtouch = loadImage("touch.PNG");
-   imgdontTouch = loadImage("dontTouch.PNG");
-   
-   fill(250,10);
-   rect(10,200,340,250);
-  
-   fill(250,10);
-   rect(350,200,340,250);
-  
-  //3번퀴즈
-  
-    fill(0);
-    textFont(font);
-    textSize(25);
-    text("근처에 불이나 뜨거운 냄비가 있을 땐",120,70);
-    text("어떻게 해야 할까요?",210,100);
-    
-    
-    if(mouseX<width/2){
-      
-      image(cimgR,10,200,340,250);
-      image(imgtouch,30,220,300,200);
-      
-    }else{
-      image(cimgB,10,200,340,250);
-      image(imgdontTouch,370,220,300,200);
-    }
-  
-
-      
-     //  버튼 생성
-     btnBack = new Button(632, 438, 70, 70, color(0,0,0,0), "");
-     // 버튼 실행
-     btnBack.run();
-}
-     
-  State decideState() {
-    if (btnBack.isPush()) { // if ellapsed time is larger than
-      return new SafetyQuiz(); // go to ending  
-    }  
-    return this;   
-
-  }
-}
-//4
-
-class SafetyQuiz4 extends State {
-   void drawState() {
-   background(0);
-   
-   imgQback = loadImage("imgQback.png");
-   imgHome = loadImage("home.png");
-   cimgB = loadImage("cimgB.png");  
-   cimgR = loadImage("cimgR.png");  
-   image(imgQback, 0, 0, width, height);
-   image(imgHome,620, 430); 
-   
-   //그림 읽기
-   imgblue = loadImage("blue.PNG");
-   imgred = loadImage("red.PNG");
-   
-   fill(250,10);
-   rect(10,200,340,250);
-  
-   fill(250,10);
-   rect(350,200,340,250);
-  
-  //4번퀴즈
-  
-    fill(0);
-    textFont(font);
-    textSize(25);
-    text("물을 틀 때 조심해야 하는 방향의 색깔은?",80,70);
-    
-    
-    if(mouseX<width/2){
-      
-      image(cimgR,10,200,340,250);
-      image(imgred,30,220,300,200);
-
-    }else{
-      
-      image(cimgB,10,200,340,250);
-      image(imgblue,370,220,300,200);
-    }
-   
-     //  버튼 생성
-     btnBack = new Button(632, 438, 70, 70, color(0,0,0,0), "");
-     // 버튼 실행
-     btnBack.run();
-}
-     
-  State decideState() {
-    if (btnBack.isPush()) { // if ellapsed time is larger than
-      return new SafetyQuiz(); // go to ending  
-    }  
-    return this;   
-
-  }
-}
-
-
-// Game
 class GameState0 extends State {
   void drawState() {
     fill(0); // moji color  
@@ -921,7 +306,7 @@ class GameState1 extends State {
      
      fill(47,21,178);
      textSize(35);
-     text("탈것", 350,80);
+     text("운송수단", 350,80);
      imgReady = loadImage("imgReady.jpg");
      imageMode(CENTER);
      image(imgReady,350,230);
@@ -983,7 +368,7 @@ class GameState2 extends State {
        if (btnEnd1.isPush()) 
      break;
      song6.play();
-     }  
+    }
      imageMode(CENTER);
      image(image[index],350,230);
      index = (index+1) % image.length;
@@ -1090,7 +475,7 @@ class GameState4 extends State {
      image(image[index],350,230);
      index = (index+1) % image.length;
      delay(wait);
-     
+   
 }
      btnEnd1 =new Button(600, 420, 100, 80, color(190, 100, 70,190), "END");
      btnEnd1.run();
@@ -1125,15 +510,16 @@ class GameState5 extends State {
      text("사물", 350,80);  
      for(int i = 0; i < image.length ; i++){
        image[i] = loadImage("object" + i + ".jpg");
-
+    
      }  
      imageMode(CENTER);
      image(image[index],350,230);
      index = (index+1) % image.length;
      delay(wait);
+     song9.play();
      btnEnd1 =new Button(600, 420, 100, 80, color(190, 100, 70,190), "END");
      btnEnd1.run();
-     song9.play();
+      song9.play();
   }
   
   State decideState() {    
@@ -1252,7 +638,7 @@ class Music extends State {
     btnWord.run(); 
     btnBack.run();
 
-    //그그림 넣기    
+    //그림 넣기    
     image(imgHome,330, 420);        
    }
   State decideState() {      
