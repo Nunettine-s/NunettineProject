@@ -590,23 +590,21 @@ class SafetyQuiz1 extends State {
       image(cimgB,350,200,340,250);
       image(imghand,370,220,300,200);
     } 
+   if(mousePressed){
+     if(mouseX>=350 && mouseY>=200){
+        song11.play();
+      } else if(mouseX<=350 && mouseY>=200){
+        song12.play();
+      }
+    }
+      
      //  버튼 생성
     btnBack = new Button(645, 470, 50, 50, color(0,0,0,0), "");
      // 버튼 실행
     btnBack.run();
   }
- // 1번퀴즈, 3번퀴즈일 경우 정답처리
-   void mousePressed(){
-    if(mouseX>=350 && mouseY>=200){
-        song11.play();
-    }
-    else if (mouseX<=350 && mouseY>=200){
-        song12.play();
-    }
-    
-}
+  
 
-   
   State decideState() {
     if (btnBack.isPush()) { // if ellapsed time is larger than
       return new SafetyQuiz(); // go to ending  
@@ -615,7 +613,7 @@ class SafetyQuiz1 extends State {
 
   }
 }
-// 윗부분 테스트2
+
 
 class SafetyQuiz2 extends State {
    void drawState() {
@@ -653,7 +651,14 @@ class SafetyQuiz2 extends State {
    else{ 
       image(cimgB,350,200,340,250);
       image(imgnotOpen,370,220,300,200);
-    } 
+    }
+    if(mousePressed){
+     if(mouseX>=350 && mouseY>=200){
+        song11.play();
+      } else if(mouseX<=350 && mouseY>=200){
+        song12.play();
+      }
+    }
 
      //  버튼 생성
      btnBack = new Button(645, 470, 50, 50, color(0,0,0,0), "");
@@ -669,7 +674,6 @@ class SafetyQuiz2 extends State {
 
   }
 }
-//3
 
 class SafetyQuiz3 extends State {
    void drawState() {
@@ -709,11 +713,15 @@ class SafetyQuiz3 extends State {
    else{ 
       image(cimgB,350,200,340,250);
       image(imgdontTouch,370,220,300,200);
-    } 
-  
-
-      
-     //  버튼 생성
+    }
+    if(mousePressed){
+     if(mouseX>=350 && mouseY>=200){
+        song11.play();
+      } else if(mouseX<=350 && mouseY>=200){
+        song12.play();
+      }
+    }
+       //  버튼 생성
      btnBack = new Button(645, 470, 50, 50, color(0,0,0,0), "");
      // 버튼 실행
      btnBack.run();
@@ -727,7 +735,6 @@ class SafetyQuiz3 extends State {
 
   }
 }
-//4
 
 class SafetyQuiz4 extends State {
    void drawState() {
@@ -744,12 +751,6 @@ class SafetyQuiz4 extends State {
    imgblue = loadImage("blue.PNG");
    imgred = loadImage("red.PNG");
    
-   fill(250,10);
-   rect(10,200,340,250);
-  
-   fill(250,10);
-   rect(350,200,340,250);
-  
   //4번퀴즈
   
     fill(0);
@@ -761,19 +762,24 @@ class SafetyQuiz4 extends State {
     if(mouseX<width/2){
       image(cimgR,10,200,340,250);
       image(imgblue,30,220,300,200);
-    }
+      }
    
    else{ 
       image(cimgB,350,200,340,250);
       image(imgred,370,220,300,200);
-    } 
-   
+    }
+    if(mousePressed){
+       if(mouseX>=350 && mouseY>=200){
+          song12.play();
+      }else if(mouseX<=350 && mouseY>=200){
+          song11.play();
+      }
+    }   
      //  버튼 생성
      btnBack = new Button(645, 470, 50, 50, color(0,0,0,0), "");
      // 버튼 실행
      btnBack.run();
-}
-     
+   }     
   State decideState() {
     if (btnBack.isPush()) { // if ellapsed time is larger than
       return new SafetyQuiz(); // go to ending  
