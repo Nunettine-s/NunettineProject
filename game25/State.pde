@@ -172,7 +172,8 @@ class Safety0 extends State {
     } 
      else if
     (btnBack.isPush()) {
-      return new TitleState();
+      //return new TitleState();
+      return new MenuState();
     } 
     return this;
   }
@@ -550,7 +551,7 @@ class SafetyQuiz extends State {
     } 
      else if
     (btnBack.isPush()) {
-      return new TitleState();
+      return new Safety0();
     } 
     return this;
   }
@@ -579,13 +580,7 @@ class SafetyQuiz1 extends State {
    textFont(font);
    textSize(25);
    text("밖에서 놀다가 들어오면 제일 먼저 해야 할 일은?",330,70);
-   
-   //fill(250,10);
-   //rect(10,200,340,250);
-  
-   //fill(250,10);
-   //rect(350,200,340,250);
-   
+
    if(mouseX<width/2){
       image(cimgR,10,200,340,250);
       image(imgeat,30,220,300,200);
@@ -659,9 +654,7 @@ class SafetyQuiz2 extends State {
       image(cimgB,350,200,340,250);
       image(imgnotOpen,370,220,300,200);
     } 
-  
 
-      
      //  버튼 생성
      btnBack = new Button(645, 470, 50, 50, color(0,0,0,0), "");
      // 버튼 실행
@@ -1240,9 +1233,9 @@ class Music extends State {
     
   //  버튼 생성
     btnTomato =new Button(200, 170, 150, 100,  color(190, 100, 70,190), "PIG");
-    btnBear =new Button(500, 170, 150, 100, color(190, 100, 70,190), "BEAR");
+    btnBear =new Button(500, 170, 150, 100, color(190, 100, 70,190), "GOOD WORD");
     btnPig =new Button(200, 320, 150, 100, color(190, 100, 70,190), "TOMATO");
-    btnWord =new Button(500, 320, 150, 100, color(190, 100, 70,190), "GOOD WORD"); 
+    btnWord =new Button(500, 320, 150, 100, color(190, 100, 70,190), "BEAR"); 
     btnBack = new Button(360, 450, 100, 50, color( 220, 80, 100, 88), "");
 
       
