@@ -21,12 +21,6 @@ void setup() {
   movie3 = new Movie(this,"Safety3.mp4");
   movie4 = new Movie(this,"Safety4.mp4");
 
-
-  
-  
-
-
-
   
   minim = new Minim(this);
   song1 =  minim.loadFile("pig song.mp3");

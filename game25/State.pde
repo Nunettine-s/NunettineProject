@@ -14,7 +14,8 @@ Button  btnVehicle,btnAnimal,btnColor,btnFood,btnNum,btnRandom,btnBack,btnRecord
 PImage  img,imgVehicle,imgAnimal,imgColor,imgFood,imgNum,imgRondom,imgBack,imgStart,imgTitle,imgWrite,
         imgHome,imgMusic,imgReady,bgd,random,imgBack2,imgCard,imgNote,imgSafe,imgBack5,imgView,imgBack4,
         imgWrite1,imgPlay,imgStop,imgPause,imgSafety1,imgSafety2,imgSafety3,imgSafety4,imgBack3,imgQuiz,
-        imgblue,imgred,imgopen,imgnotOpen,imgtouch,imgdontTouch,imgBack6,imgNum1,imgNum2,imgNum3,imgNum4,imgeat,imghand,imgQback; 
+        imgblue,imgred,imgopen,imgnotOpen,imgtouch,imgdontTouch,imgBack6,imgNum1,imgNum2,imgNum3,imgNum4,imgeat,imghand,
+        imgQback,cimgB,cimgR; 
         
 import org.gicentre.handy.*; 
 HandyRenderer h;
@@ -490,7 +491,7 @@ class WriteState extends State {
   }
 }
 
-// 시험
+// 퀴즈 main
 
 class SafetyQuiz extends State {
   void drawState() {
@@ -556,54 +557,59 @@ class SafetyQuiz extends State {
 
 }
            
-// 윗부분 시험중
+// 퀴즈 sub
 class SafetyQuiz1 extends State {
    void drawState() {
    background(0);
-   
+  
    imgQback = loadImage("imgQback.png");
    imgeat = loadImage("image4.png");
    imghand = loadImage("image5.png");
-   imgHome = loadImage("home.png");    
+   imgHome = loadImage("home.png");  
+   cimgB = loadImage("cimgB.png");  
+   cimgR = loadImage("cimgR.png");  
    image(imgQback, 0, 0, width, height);
    image(imgHome,620, 430);  
-   
     
+
+  //1번퀴즈
+  
+   fill(0);
+   textFont(font);
+   textSize(25);
+   text("밖에서 놀다가 들어오면 제일 먼저 해야 할 일은?",330,70);
    
    fill(250,10);
    rect(10,200,340,250);
   
    fill(250,10);
    rect(350,200,340,250);
-  
-  //1번퀴즈
-  
-    fill(0);
-    textFont(font);
-    textSize(25);
-    text("밖에서 놀다가 들어오면 제일 먼저 해야 할 일은?",80,70);
-    
-    
-    if(mouseX<width/2){
-      
-      fill(237,34,82);
-      rect(10,200,340,250);
+   
+   if(mouseX<width/2){
+      image(cimgR,10,200,340,250);
       image(imgeat,30,220,300,200);
-      song12.play();
-      
-  
-    }else{
-      fill(69,77,230);
-      rect(350,200,340,250);
-      image(imghand,370,220,300,200);
-      song11.play();
     }
+   
+    else{ 
+       image(cimgB,350,200,340,250);
+       image(imghand,370,220,300,200);
+    }  
+} 
+  // 1번퀴즈, 3번퀴즈일 경우 정답처리
+   void mousePressed(){
+    if(mouseX>=350 && mouseY>=200){
+        song11.play();
   
+     }else if (mouseX<=350 && mouseY>=200){
+        song12.play();
+  }
      //  버튼 생성
      btnBack = new Button(620, 430, 70, 70, color(0,0,0,0), "");
      // 버튼 실행
      btnBack.run();
 }
+
+
      
   State decideState() {
     if (btnBack.isPush()) { // if ellapsed time is larger than
@@ -621,6 +627,8 @@ class SafetyQuiz2 extends State {
    
    imgQback = loadImage("imgQback.png");
    imgHome = loadImage("home.png");
+   cimgB = loadImage("cimgB.png");  
+   cimgR = loadImage("cimgR.png");  
    image(imgQback, 0, 0, width, height);
    image(imgHome,620, 430); 
    
@@ -642,18 +650,12 @@ class SafetyQuiz2 extends State {
     text("모르는 사람이 문을 열어 달라고 하면?",100,70);
     
     if(mouseX<width/2){
-      
-      fill(237,34,82);
-      rect(10,200,340,250);
+      image(cimgR,10,200,340,250);
       image(imgnotOpen,30,220,300,200);
-      song11.play();
-      
   
     }else{
-      fill(69,77,230);
-      rect(350,200,340,250);
+      image(cimgB,10,200,340,250);
       image(imgopen,370,220,300,200);
-      song12.play();
     }
   
 
@@ -680,6 +682,8 @@ class SafetyQuiz3 extends State {
    
    imgQback = loadImage("imgQback.png");
    imgHome = loadImage("home.png");
+   cimgB = loadImage("cimgB.png");  
+   cimgR = loadImage("cimgR.png");  
    image(imgQback, 0, 0, width, height);
    image(imgHome,620, 430); 
    
@@ -704,17 +708,12 @@ class SafetyQuiz3 extends State {
     
     if(mouseX<width/2){
       
-      fill(237,34,82);
-      rect(10,200,340,250);
+      image(cimgR,10,200,340,250);
       image(imgtouch,30,220,300,200);
-      song11.play();
       
-  
     }else{
-      fill(69,77,230);
-      rect(350,200,340,250);
+      image(cimgB,10,200,340,250);
       image(imgdontTouch,370,220,300,200);
-      song12.play();
     }
   
 
@@ -741,6 +740,8 @@ class SafetyQuiz4 extends State {
    
    imgQback = loadImage("imgQback.png");
    imgHome = loadImage("home.png");
+   cimgB = loadImage("cimgB.png");  
+   cimgR = loadImage("cimgR.png");  
    image(imgQback, 0, 0, width, height);
    image(imgHome,620, 430); 
    
@@ -764,20 +765,15 @@ class SafetyQuiz4 extends State {
     
     if(mouseX<width/2){
       
-      fill(237,34,82);
-      rect(10,200,340,250);
+      image(cimgR,10,200,340,250);
       image(imgred,30,220,300,200);
-      song11.play();
-      
-  
+
     }else{
-    fill(69,77,230);
-    rect(350,200,340,250);
-    image(imgblue,370,220,300,200);
-    song12.play();
-    }
-  
       
+      image(cimgB,10,200,340,250);
+      image(imgblue,370,220,300,200);
+    }
+   
      //  버튼 생성
      btnBack = new Button(632, 438, 70, 70, color(0,0,0,0), "");
      // 버튼 실행
@@ -792,9 +788,9 @@ class SafetyQuiz4 extends State {
 
   }
 }
-//5 마지막
 
 
+// Game
 class GameState0 extends State {
   void drawState() {
     fill(0); // moji color  
