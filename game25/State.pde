@@ -925,10 +925,10 @@ class GameState1 extends State {
      imgReady = loadImage("imgReady.jpg");
      imageMode(CENTER);
      image(imgReady,350,230);
+    // delay(wait);
       if (t>1) {
-
       for(int i = 0; i < image.length ; i++){
-        image[i] = loadImage("timage" + i + ".png");
+        image[i] = loadImage("timage" + i + ".jpg");
         if (btnEnd1.isPush()) 
      break;
      song5.play();
