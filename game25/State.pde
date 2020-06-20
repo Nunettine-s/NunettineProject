@@ -12,7 +12,7 @@ Button  btnVehicle,btnAnimal,btnColor,btnFood,btnNum,btnRandom,btnBack,btnRecord
         btnSafety4,btnNum1,btnNum2,btnNum3,btnNum4,btnQuiz;  
 
 PImage  img,imgVehicle,imgAnimal,imgColor,imgFood,imgNum,imgRondom,imgBack,imgStart,imgTitle,imgWrite,
-        imgHome,imgMusic,imgReady,bgd,random,imgBack2,imgCard,imgNote,imgSafe,imgBack5,imgView,imgBack4,
+        imgHome,imgMusic,imgReady,bgd,random,imgBack2,imgBack5,imgView,imgBack4,
         imgWrite1,imgPlay,imgStop,imgPause,imgSafety1,imgSafety2,imgSafety3,imgSafety4,imgBack3,imgQuiz,
         imgblue,imgred,imgopen,imgnotOpen,imgtouch,imgdontTouch,imgBack6,imgNum1,imgNum2,imgNum3,imgNum4,imgeat,imghand,
         imgQback,cimgB,cimgR,imgHome2; 
@@ -56,26 +56,16 @@ class MenuState extends State {
     textAlign(CENTER, CENTER);
     
     //그림 읽기
-    imgBack2 = loadImage("Menu.PNG"); 
-    imgCard = loadImage("Card.png");
-    imgNote = loadImage("Note.png");
-    imgSafe = loadImage("safe.png");
-    imgHome = loadImage("home.png");
+    imgBack2 = loadImage("Menu3.jpg"); 
         
     imageMode( CORNER );
     image(imgBack2, 0, 0, width, height);
     
   //  버튼 생성
-    btnCard =new Button(110, 220, 100, 120,  color(190, 100, 70,190), "Flash Card");
-    btnNote =new Button(470, 180, 100, 120, color(190, 100, 70,190), "Music");   
-    btnSafe = new Button(290, 310, 100, 120, color( 220, 80, 100, 88), "Safety Education");
-    btnBack = new Button(600, 360, 100, 120, color( 220, 80, 100, 88), "Home");
-     
-    //그림 넣기
-    image(imgCard,90, 240);
-    image(imgNote,503,160);   
-    image(imgSafe,290, 330);
-    image(imgHome,570, 290);            
+    btnCard =new Button(110, 220, 100, 120,  color(190, 100, 70,0), "");
+    btnNote =new Button(470, 180, 100, 120, color(190, 100, 70,0), "");   
+    btnSafe = new Button(290, 310, 100, 120, color( 220, 80, 100, 0), "");
+    btnBack = new Button(600, 360, 100, 120, color( 220, 80, 100, 0), "");       
             
   // 버튼 실행
     btnCard.run();
