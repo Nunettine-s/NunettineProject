@@ -21,12 +21,6 @@ void setup() {
   movie3 = new Movie(this,"Safety3.mp4");
   movie4 = new Movie(this,"Safety4.mp4");
 
-
-  
-  
-
-
-
   
   minim = new Minim(this);
   song1 =  minim.loadFile("pig song.mp3");
@@ -39,6 +33,9 @@ void setup() {
   song8 =  minim.loadFile("음식.mp3");
   song9 =  minim.loadFile("사물.mp3");
   song10 =  minim.loadFile("랜덤.mp3");
+  song11 = minim.loadFile("yes.mp3");
+  song12 =  minim.loadFile("no.mp3");
+  // 새로운 작업합니다.
 
 }
 
