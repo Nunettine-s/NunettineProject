@@ -6,16 +6,25 @@ String msg; //状態MSG
 PImage image[] = new PImage[20];
 int index = 0;
 int wait = 1000;
-Button  btnVehicle,btnAnimal,btnColor,btnFood,btnNum,btnRandom,btnBack,btnRecord,btnGameStart,btnHome,btnMusic, btnEnd1, btnTomato, btnBear, btnWord, btnPig,btnEnd2,btnCard,btnSafe,btnNote,btnView,btnWrite1,btnPlay,btnStop,btnPause,btnSafety1,btnSafety2,btnSafety3,btnSafety4;  
+Button  btnVehicle,btnAnimal,btnColor,btnFood,btnNum,btnRandom,btnBack,btnRecord,btnGameStart,
+        btnHome,btnMusic, btnEnd1, btnTomato, btnBear, btnWord, btnPig,btnEnd2,btnCard,btnSafe,
+        btnNote,btnView,btnWrite1,btnPlay,btnStop,btnPause,btnSafety1,btnSafety2,btnSafety3,
+        btnSafety4,btnNum1,btnNum2,btnNum3,btnNum4,btnQuiz;  
 
-PImage  img,imgVehicle,imgAnimal,imgColor,imgFood,imgNum,imgRondom,imgBack,imgStart,imgTitle,imgWrite,imgHome,imgMusic,imgReady,bgd,random,imgBack2,imgCard,imgNote,imgSafe,imgBack5,imgView,imgBack4,imgWrite1,imgPlay,imgStop,imgPause,imgSafety1,imgSafety2,imgSafety3,imgSafety4,imgBack3; 
+PImage  img,imgVehicle,imgAnimal,imgColor,imgFood,imgNum,imgRondom,imgBack,imgStart,imgTitle,imgWrite,
+        imgHome,imgMusic,imgReady,bgd,random,imgBack2,imgCard,imgNote,imgSafe,imgBack5,imgView,imgBack4,
+        imgWrite1,imgPlay,imgStop,imgPause,imgSafety1,imgSafety2,imgSafety3,imgSafety4,imgBack3,imgQuiz,
+        imgblue,imgred,imgopen,imgnotOpen,imgtouch,imgdontTouch,imgBack6,imgNum1,imgNum2,imgNum3,imgNum4,imgeat,imghand,
+        imgQback,cimgB,cimgR,imgHome2; 
+        
 import org.gicentre.handy.*; 
 HandyRenderer h;
 Flower[] flowers = new Flower[5];
 
 import ddf.minim.*;
 Minim minim;
-AudioPlayer song1,song2,song3,song4, song5,song6,song7,song8,song9,song10;
+AudioPlayer song1,song2,song3,song4, song5,song6,song7,song8,
+            song9,song10,song11,song12;
 PFont font;
 
 
@@ -101,7 +110,8 @@ class Safety0 extends State {
     font = createFont("굴림체",20);
     rectMode(CENTER);
     textAlign(CENTER, CENTER);
-    imgHome = loadImage("home.png"); 
+    imgHome = loadImage("home.png");
+    imgQuiz = loadImage("Qize.png");
     imgBack3 = loadImage("back3.png");
     imageMode( CORNER );
     image(imgBack3, 0, 0, width, height);
@@ -117,14 +127,16 @@ class Safety0 extends State {
     btnSafety2 =new Button(500, 150, 130, 130, color(190, 100, 70,190), "");
     btnSafety3 =new Button(200, 320, 130, 130, color(190, 100, 70,190), "");
     btnSafety4 =new Button(500, 320, 130, 130, color(190, 100, 70,190), ""); 
-    btnBack = new Button(360, 450, 100, 50, color( 220, 80, 100, 88), "");
+    btnBack = new Button(360, 450, 100, 50, color(0, 0, 0,0), "");
+    btnQuiz = new Button(355,230,110,110,color(0, 0, 0,0), "");
 
       
   // 버튼 실행
     btnSafety1.run();
     btnSafety2.run();
     btnSafety3.run(); 
-    btnSafety4.run(); 
+    btnSafety4.run();
+    btnQuiz.run();
     btnBack.run();
     
     
@@ -135,7 +147,8 @@ class Safety0 extends State {
     image(imgSafety4,430, 250);  
 
     //그그림 넣기    
-    image(imgHome,330, 420);        
+    image(imgHome,330, 420);
+    image(imgQuiz,320,200);    
    }
   State decideState() {      
     if (btnSafety1.isPush()) { // if ellapsed time is larger than
@@ -152,10 +165,15 @@ class Safety0 extends State {
      else if
     (btnSafety4.isPush()) {
       return new Safety4 ();
+    }
+    else if
+    (btnQuiz.isPush()) {
+      return new SafetyQuiz();
     } 
      else if
     (btnBack.isPush()) {
-      return new TitleState();
+      //return new TitleState();
+      return new MenuState();
     } 
     return this;
   }
@@ -474,7 +492,305 @@ class WriteState extends State {
   }
 }
 
+// 퀴즈 main
 
+class SafetyQuiz extends State {
+  void drawState() {
+    fill(0); 
+    rectMode(CENTER);
+    textAlign(CENTER, CENTER);
+    imgBack6 = loadImage("bacQuiz.PNG");
+    imgHome = loadImage("home.png");
+    imageMode( CORNER );
+    image(imgBack6, 0, 0, width, height);    
+         
+    
+    //그림 읽기
+    imgNum1 = loadImage("Num1.png");     
+    imgNum2 = loadImage("Num2.png");
+    imgNum3 = loadImage("Num3.png");
+    imgNum4 = loadImage("Num4.png");
+    
+     //그림 넣기
+    image(imgNum1,130, 140);
+    image(imgNum2,445,140);   
+    image(imgNum3,130, 290);
+    image(imgNum4,445, 290);
+    image(imgHome,330, 420);  
+     
+  //  버튼 생성
+    btnNum1 =new Button(200, 150, 130, 130,  color(0, 0, 0,0), "");
+    btnNum2 =new Button(500, 150, 130, 130, color(0, 0, 0,0), "");   
+    btnNum3 = new Button(200, 320, 130, 130, color(0, 0, 0,0), "");
+    btnNum4 = new Button(500, 320, 130, 130, color(0, 0, 0,0), "");
+    btnBack = new Button(360, 450, 100, 50, color(0, 0, 0,0), "");
+        
+  // 버튼 실행
+    btnNum1.run();
+    btnNum2.run();
+    btnNum3.run(); 
+    btnNum4.run();
+    btnBack.run();
+   }
+  
+  State decideState() {      
+    if (btnNum1.isPush()) { // if ellapsed time is larger than
+      return new SafetyQuiz1 (); // go to ending
+    }  
+    else if
+    (btnNum2.isPush()) {
+      return new SafetyQuiz2 ();    
+    } 
+     else if
+    (btnNum3.isPush()) {
+      return new SafetyQuiz3 ();   
+    } 
+     else if
+    (btnNum4.isPush()) {
+      return new SafetyQuiz4 ();
+    } 
+     else if
+    (btnBack.isPush()) {
+      return new Safety0();
+    } 
+    return this;
+  }
+
+}
+           
+// 퀴즈 sub
+class SafetyQuiz1 extends State {
+   
+  void drawState() {
+   background(0);
+  
+   imgQback = loadImage("imgQback.png");
+   imgeat = loadImage("image4.png");
+   imghand = loadImage("image5.png");
+   imgHome2 = loadImage("imgHome2.png");  
+   cimgB = loadImage("cimgB.png");  
+   cimgR = loadImage("cimgR.png");  
+   image(imgQback, 0, 0, width, height);
+   image(imgHome2,620, 455);     
+
+    //1번퀴즈
+    
+   
+   fill(0);
+   textFont(font);
+   textSize(25);
+   text("밖에서 놀다가 들어오면 제일 먼저 해야 할 일은?",330,70);
+
+   if(mouseX<width/2){
+      image(cimgR,10,200,340,250);
+      image(imgeat,30,220,300,200);
+    }
+   
+   else{ 
+      image(cimgB,350,200,340,250);
+      image(imghand,370,220,300,200);
+    } 
+   if(mousePressed){
+     if(mouseX>=350 && mouseY>=200){
+        song11.play();
+      } else if(mouseX<=350 && mouseY>=200){
+        song12.play();
+      }
+    }
+      
+     //  버튼 생성
+    btnBack = new Button(645, 470, 50, 50, color(0,0,0,0), "");
+     // 버튼 실행
+    btnBack.run();
+  }
+  
+
+  State decideState() {
+    if (btnBack.isPush()) { // if ellapsed time is larger than
+      return new SafetyQuiz(); // go to ending  
+    }  
+    return this;   
+
+  }
+}
+
+
+class SafetyQuiz2 extends State {
+   void drawState() {
+   background(0);
+   
+   imgQback = loadImage("imgQback.png");
+   imgHome2 = loadImage("imgHome2.png");
+   cimgB = loadImage("cimgB.png");  
+   cimgR = loadImage("cimgR.png");  
+   image(imgQback, 0, 0, width, height);
+   image(imgHome2,620, 455);     
+   
+   //그림 읽기
+   imgopen = loadImage("open.PNG");
+   imgnotOpen = loadImage("notOpen.PNG");
+    
+   fill(250,10);
+   rect(10,200,340,250);
+  
+   fill(250,10);
+   rect(350,200,340,250);
+  
+  //2번퀴즈
+  
+    fill(0);
+    textFont(font);
+    textSize(25);
+    text("모르는 사람이 문을 열어 달라고 하면?",330,70);
+    
+    if(mouseX<width/2){
+      image(cimgR,10,200,340,250);
+      image(imgopen,30,220,300,200);
+    }
+   
+   else{ 
+      image(cimgB,350,200,340,250);
+      image(imgnotOpen,370,220,300,200);
+    }
+    if(mousePressed){
+     if(mouseX>=350 && mouseY>=200){
+        song11.play();
+      } else if(mouseX<=350 && mouseY>=200){
+        song12.play();
+      }
+    }
+
+     //  버튼 생성
+     btnBack = new Button(645, 470, 50, 50, color(0,0,0,0), "");
+     // 버튼 실행
+     btnBack.run();
+}
+     
+  State decideState() {
+    if (btnBack.isPush()) { // if ellapsed time is larger than
+      return new SafetyQuiz(); // go to ending  
+    }  
+    return this;   
+
+  }
+}
+
+class SafetyQuiz3 extends State {
+   void drawState() {
+   background(0);
+   
+   imgQback = loadImage("imgQback.png");
+   imgHome2 = loadImage("imgHome2.png");
+   cimgB = loadImage("cimgB.png");  
+   cimgR = loadImage("cimgR.png");  
+   image(imgQback, 0, 0, width, height);
+   image(imgHome2,620, 455);     
+   
+   //그림 읽기
+   imgtouch = loadImage("touch.PNG");
+   imgdontTouch = loadImage("dontTouch.PNG");
+   
+   fill(250,10);
+   rect(10,200,340,250);
+  
+   fill(250,10);
+   rect(350,200,340,250);
+  
+  //3번퀴즈
+  
+    fill(0);
+    textFont(font);
+    textSize(25);
+    text("근처에 불이나 뜨거운 냄비가 있을 땐",330,70);
+    text("어떻게 해야 할까요?",330,100);
+    
+    
+    if(mouseX<width/2){
+      image(cimgR,10,200,340,250);
+      image(imgtouch,30,220,300,200);
+    }
+   
+   else{ 
+      image(cimgB,350,200,340,250);
+      image(imgdontTouch,370,220,300,200);
+    }
+    if(mousePressed){
+     if(mouseX>=350 && mouseY>=200){
+        song11.play();
+      } else if(mouseX<=350 && mouseY>=200){
+        song12.play();
+      }
+    }
+       //  버튼 생성
+     btnBack = new Button(645, 470, 50, 50, color(0,0,0,0), "");
+     // 버튼 실행
+     btnBack.run();
+}
+     
+  State decideState() {
+    if (btnBack.isPush()) { // if ellapsed time is larger than
+      return new SafetyQuiz(); // go to ending  
+    }  
+    return this;   
+
+  }
+}
+
+class SafetyQuiz4 extends State {
+   void drawState() {
+   background(0);
+   
+   imgQback = loadImage("imgQback.png");
+   imgHome2 = loadImage("imgHome2.png");
+   cimgB = loadImage("cimgB.png");  
+   cimgR = loadImage("cimgR.png");  
+   image(imgQback, 0, 0, width, height);
+   image(imgHome2,620, 455);     
+   
+   //그림 읽기
+   imgblue = loadImage("blue.PNG");
+   imgred = loadImage("red.PNG");
+   
+  //4번퀴즈
+  
+    fill(0);
+    textFont(font);
+    textSize(25);
+    text("물을 틀 때 조심해야 하는 방향의 색깔은?",330,70);
+    
+    
+    if(mouseX<width/2){
+      image(cimgR,10,200,340,250);
+      image(imgblue,30,220,300,200);
+      }
+   
+   else{ 
+      image(cimgB,350,200,340,250);
+      image(imgred,370,220,300,200);
+    }
+    if(mousePressed){
+       if(mouseX>=350 && mouseY>=200){
+          song12.play();
+      }else if(mouseX<=350 && mouseY>=200){
+          song11.play();
+      }
+    }   
+     //  버튼 생성
+     btnBack = new Button(645, 470, 50, 50, color(0,0,0,0), "");
+     // 버튼 실행
+     btnBack.run();
+   }     
+  State decideState() {
+    if (btnBack.isPush()) { // if ellapsed time is larger than
+      return new SafetyQuiz(); // go to ending  
+    }  
+    return this;   
+
+  }
+}
+
+
+// Game
 class GameState0 extends State {
   void drawState() {
     fill(0); // moji color  
@@ -923,9 +1239,9 @@ class Music extends State {
     
   //  버튼 생성
     btnTomato =new Button(200, 170, 150, 100,  color(190, 100, 70,190), "PIG");
-    btnBear =new Button(500, 170, 150, 100, color(190, 100, 70,190), "BEAR");
+    btnBear =new Button(500, 170, 150, 100, color(190, 100, 70,190), "GOOD WORD");
     btnPig =new Button(200, 320, 150, 100, color(190, 100, 70,190), "TOMATO");
-    btnWord =new Button(500, 320, 150, 100, color(190, 100, 70,190), "GOOD WORD"); 
+    btnWord =new Button(500, 320, 150, 100, color(190, 100, 70,190), "BEAR"); 
     btnBack = new Button(360, 450, 100, 50, color( 220, 80, 100, 88), "");
 
       
