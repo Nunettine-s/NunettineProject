@@ -6,6 +6,8 @@ String msg; //状態MSG
 PImage image[] = new PImage[20];
 int index = 0;
 int wait = 1000;
+
+//Button 틀래스 메소드
 Button  btnVehicle,btnAnimal,btnColor,btnFood,btnNum,btnRandom,btnBack,btnRecord,btnGameStart,
         btnHome,btnMusic, btnEnd1, btnTomato, btnBear, btnWord, btnPig,btnEnd2,btnCard,btnSafe,
         btnNote,btnView,btnWrite1,btnPlay,btnStop,btnPause,btnSafety1,btnSafety2,btnSafety3,
