@@ -1,4 +1,4 @@
-import java.awt.*; //<>// //<>// //<>//
+import java.awt.*; //<>//
 import processing.video.*;
 Movie movie1,movie2,movie3,movie4;
 String msg; //状態MSG
@@ -73,9 +73,9 @@ class MenuState extends State {
     btnCard.run();
     btnNote.run();
     btnSafe.run(); 
-    btnBack.run();
-           
+    btnBack.run();           
    }  
+   
   State decideState() {      
     if (btnCard.isPush()) { // if ellapsed time is larger than
       return new GameState0 (); // go to ending
