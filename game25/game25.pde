@@ -1,7 +1,6 @@
 State state;
 import processing.video.*;
 
-
 void setup() {
   size(700, 500);
   font = createFont("굴림체",20);
@@ -9,19 +8,18 @@ void setup() {
   textAlign(CENTER);
   fill(255);
   state = new TitleState();
-  h = new HandyRenderer(this); 
-//  colorMode(HSB, 300, 50, 100);  //<>// //<>//
+  h = new HandyRenderer(this);  //<>//
   smooth();
   for (int i = 0;i < flowers.length;i++) {
    flowers[i] = new Flower();}
-   
-  
+     
+  // movie 파일 생성    
   movie1 = new Movie(this,"Safety1.mp4");
   movie2 = new Movie(this,"Safety2.mp4");
   movie3 = new Movie(this,"Safety3.mp4");
   movie4 = new Movie(this,"Safety4.mp4");
 
-  
+  // song 파일 읽음  
   minim = new Minim(this);
   song1 =  minim.loadFile("pig song.mp3");
   song2 =  minim.loadFile("true song.mp3");
@@ -35,7 +33,6 @@ void setup() {
   song10 =  minim.loadFile("랜덤.mp3");
   song11 = minim.loadFile("yes.mp3");
   song12 =  minim.loadFile("no.mp3");
-  // 새로운 작업합니다.
 
 }
 
@@ -59,8 +56,8 @@ abstract class State {
     return decideState();
   }
 
-  abstract void drawState();    // 状態に応じた描画を行う
-  abstract State decideState(); // 次の状態を返す
+  abstract void drawState();    // 상태에 대응한 그리기를 실행함
+  abstract State decideState(); // 다음 상태를 반환함
 }
 
 void movieEvent(Movie m) {
