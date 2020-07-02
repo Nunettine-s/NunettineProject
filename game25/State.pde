@@ -13,7 +13,7 @@ Button  btnVehicle,btnAnimal,btnColor,btnFood,btnNum,btnRandom,btnBack,btnRecord
 
 PImage  img,imgVehicle,imgAnimal,imgColor,imgFood,imgNum,imgRondom,imgBack,imgStart,imgTitle,imgWrite,
         imgHome,imgMusic,imgReady,bgd,random,imgBack2,imgBack5,imgView,imgBack4,
-        imgWrite1,imgPlay,imgStop,imgPause,imgSafety1,imgSafety2,imgSafety3,imgSafety4,imgBack3,imgQuiz,
+        imgWrite1,imgWrite2,imgPlay,imgStop,imgPause,imgSafety1,imgSafety2,imgSafety3,imgSafety4,imgBack3,imgQuiz,
         imgblue,imgred,imgopen,imgnotOpen,imgtouch,imgdontTouch,imgBack6,imgNum1,imgNum2,imgNum3,imgNum4,imgeat,imghand,
         imgQback,cimgB,cimgR,imgHome2; 
         
@@ -198,9 +198,9 @@ class Safety1 extends State {
     
          //그림 넣기
     image(imgHome,600, 400);
-    image(imgStop,5, 400);
+    image(imgPause,1, 400);
     image(imgPlay,68, 400);
-    image(imgPause,140, 400);
+    image(imgStop,140, 400);
          
   
     if(btnStop.isPush()){
@@ -255,9 +255,9 @@ class Safety2 extends State {
     
          //그림 넣기
     image(imgHome,600, 400);
-    image(imgStop,5, 400);
+    image(imgPause,1, 400);
     image(imgPlay,68, 400);
-    image(imgPause,140, 400);
+    image(imgStop,140, 400);
          
   
     if(btnStop.isPush()){
@@ -312,9 +312,9 @@ class Safety3 extends State {
     
          //그림 넣기
     image(imgHome,600, 400);
-    image(imgStop,5, 400);
+    image(imgPause,1, 400);
     image(imgPlay,68, 400);
-    image(imgPause,140, 400);
+    image(imgStop,140, 400);
          
   
     if(btnStop.isPush()){
@@ -369,9 +369,9 @@ class Safety4 extends State {
     
          //그림 넣기
     image(imgHome,600, 400);
-    image(imgStop,5, 400);
+    image(imgPause,1, 400);
     image(imgPlay,68, 400);
-    image(imgPause,140, 400);
+    image(imgStop,140, 400);
          
   
     if(btnStop.isPush()){
@@ -452,7 +452,7 @@ class WriteState extends State {
     //그림 읽기
     imgBack4 = loadImage("back4.PNG"); 
     imgHome = loadImage("home.png");
-    imgWrite1 = loadImage("write.png");
+    imgWrite2 = loadImage("write1.png");
         
     imageMode( CORNER );
     image(imgBack4, 0, 0, width, height);
@@ -467,7 +467,7 @@ class WriteState extends State {
     
   //그림 넣기
     image(imgHome,600, 20);
-    image(imgWrite1,40, 20);
+    image(imgWrite2,40, 20);
       
    }  
   State decideState() {      
@@ -476,7 +476,7 @@ class WriteState extends State {
     }    
     else if
     (btnWrite1.isPush()) {
-      return new TitleState();    
+      return new RecordState();    
     } 
     return this;
   }
