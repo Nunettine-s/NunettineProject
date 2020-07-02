@@ -12,8 +12,8 @@ Button  btnVehicle,btnAnimal,btnColor,btnFood,btnNum,btnRandom,btnBack,btnRecord
         btnSafety4,btnNum1,btnNum2,btnNum3,btnNum4,btnQuiz;  
 
 PImage  img,imgVehicle,imgAnimal,imgColor,imgFood,imgNum,imgRondom,imgBack,imgStart,imgTitle,imgWrite,
-        imgHome,imgMusic,imgReady,bgd,random,imgBack2,imgCard,imgNote,imgSafe,imgBack5,imgView,imgBack4,
-        imgWrite1,imgPlay,imgStop,imgPause,imgSafety1,imgSafety2,imgSafety3,imgSafety4,imgBack3,imgQuiz,
+        imgHome,imgMusic,imgReady,bgd,random,imgBack2,imgBack5,imgView,imgBack4,
+        imgWrite1,imgWrite2,imgPlay,imgStop,imgPause,imgSafety1,imgSafety2,imgSafety3,imgSafety4,imgBack3,imgQuiz,
         imgblue,imgred,imgopen,imgnotOpen,imgtouch,imgdontTouch,imgBack6,imgNum1,imgNum2,imgNum3,imgNum4,imgeat,imghand,
         imgQback,cimgB,cimgR,imgHome2; 
         
@@ -56,26 +56,16 @@ class MenuState extends State {
     textAlign(CENTER, CENTER);
     
     //그림 읽기
-    imgBack2 = loadImage("Menu.PNG"); 
-    imgCard = loadImage("Card.png");
-    imgNote = loadImage("Note.png");
-    imgSafe = loadImage("safe.png");
-    imgHome = loadImage("home.png");
+    imgBack2 = loadImage("Menu3.jpg"); 
         
     imageMode( CORNER );
     image(imgBack2, 0, 0, width, height);
     
   //  버튼 생성
-    btnCard =new Button(110, 220, 100, 120,  color(190, 100, 70,190), "Flash Card");
-    btnNote =new Button(470, 180, 100, 120, color(190, 100, 70,190), "Music");   
-    btnSafe = new Button(290, 310, 100, 120, color( 220, 80, 100, 88), "Safety Education");
-    btnBack = new Button(600, 360, 100, 120, color( 220, 80, 100, 88), "Home");
-     
-    //그림 넣기
-    image(imgCard,90, 240);
-    image(imgNote,503,160);   
-    image(imgSafe,290, 330);
-    image(imgHome,570, 290);            
+    btnCard =new Button(110, 220, 100, 120,  color(190, 100, 70,0), "");
+    btnNote =new Button(470, 180, 100, 120, color(190, 100, 70,0), "");   
+    btnSafe = new Button(290, 310, 100, 120, color( 220, 80, 100, 0), "");
+    btnBack = new Button(600, 360, 100, 120, color( 220, 80, 100, 0), "");       
             
   // 버튼 실행
     btnCard.run();
@@ -208,9 +198,9 @@ class Safety1 extends State {
     
          //그림 넣기
     image(imgHome,600, 400);
-    image(imgStop,5, 400);
+    image(imgPause,1, 400);
     image(imgPlay,68, 400);
-    image(imgPause,140, 400);
+    image(imgStop,140, 400);
          
   
     if(btnStop.isPush()){
@@ -265,9 +255,9 @@ class Safety2 extends State {
     
          //그림 넣기
     image(imgHome,600, 400);
-    image(imgStop,5, 400);
+    image(imgPause,1, 400);
     image(imgPlay,68, 400);
-    image(imgPause,140, 400);
+    image(imgStop,140, 400);
          
   
     if(btnStop.isPush()){
@@ -322,9 +312,9 @@ class Safety3 extends State {
     
          //그림 넣기
     image(imgHome,600, 400);
-    image(imgStop,5, 400);
+    image(imgPause,1, 400);
     image(imgPlay,68, 400);
-    image(imgPause,140, 400);
+    image(imgStop,140, 400);
          
   
     if(btnStop.isPush()){
@@ -379,9 +369,9 @@ class Safety4 extends State {
     
          //그림 넣기
     image(imgHome,600, 400);
-    image(imgStop,5, 400);
+    image(imgPause,1, 400);
     image(imgPlay,68, 400);
-    image(imgPause,140, 400);
+    image(imgStop,140, 400);
          
   
     if(btnStop.isPush()){
@@ -441,7 +431,7 @@ class RecordState extends State {
    }  
   State decideState() {      
     if (btnBack.isPush()) { // if ellapsed time is larger than
-      return new MenuState(); // go to ending
+      return new GameState0(); // go to ending
     }    
     else if
     (btnView.isPush()) {
@@ -462,7 +452,7 @@ class WriteState extends State {
     //그림 읽기
     imgBack4 = loadImage("back4.PNG"); 
     imgHome = loadImage("home.png");
-    imgWrite1 = loadImage("write.png");
+    imgWrite2 = loadImage("write1.png");
         
     imageMode( CORNER );
     image(imgBack4, 0, 0, width, height);
@@ -477,7 +467,7 @@ class WriteState extends State {
     
   //그림 넣기
     image(imgHome,600, 20);
-    image(imgWrite1,40, 20);
+    image(imgWrite2,40, 20);
       
    }  
   State decideState() {      
@@ -486,7 +476,7 @@ class WriteState extends State {
     }    
     else if
     (btnWrite1.isPush()) {
-      return new TitleState();    
+      return new RecordState();    
     } 
     return this;
   }
@@ -925,10 +915,10 @@ class GameState1 extends State {
      imgReady = loadImage("imgReady.jpg");
      imageMode(CENTER);
      image(imgReady,350,230);
+    // delay(wait);
       if (t>1) {
-
       for(int i = 0; i < image.length ; i++){
-        image[i] = loadImage("timage" + i + ".png");
+        image[i] = loadImage("timage" + i + ".jpg");
         if (btnEnd1.isPush()) 
      break;
      song5.play();
