@@ -431,7 +431,7 @@ class RecordState extends State {
    }  
   State decideState() {      
     if (btnBack.isPush()) { // if ellapsed time is larger than
-      return new MenuState(); // go to ending
+      return new GameState0(); // go to ending
     }    
     else if
     (btnView.isPush()) {
